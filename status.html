@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    $(if refresh-timeout)
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+    $(endif)
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <!-- color (chrome) tab -->
+    <meta name="theme-color" content="#0477c8">
+	<meta name="msapplication-navbutton-color" content="#0477c8">
+	<meta name="apple-mobile-web-app-status-bar-style" content="#0477c8">
+    <title>TF Hotspot &bull; Status</title>
+    <link rel="shortcut icon" href="ico/hotspot.png" type="image/x-png">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/frontuiux.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- slider styles -->
+    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
+    <script src="jquery.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <!-- page na bar -->
+    <nav class="navbx">
+        <div class="navcenter centroid">
+             <!-- logo -->
+             <div class="app_logo imgfx">
+                 <img src="img/SPECTRA LOGO.png" alt="">
+             </div>
+ 
+             <!-- right navs -->
+             <aside class="rightnavbx">
+                 <!-- tap menu -->
+                 <div class="tap_menu imgfx"></div>
+                 <ul>
+                     <span class="tap_hide">
+                     <li><a href="#home">Home</a></li>
+                     <li>
+                         <a href="#">Pricing</a>
+                         <div class="sub_menu">
+                             <ul>
+                                 <br><br>
+                                 <a href="#students-pricing"><li>Students</li></a>
+                                 <a href="#home-pricing"><li>Home</li></a>
+                                 <a href="#apartment-pricing"><li>Apartment</li></a>
+                                 <a href="#corporate-pricing"><li>Corporate</li></a>
+                             </ul>
+                         </div>
+                     </li>
+                     <li><a target="_blank" href="http://www.spectragh.com/myaccount">My Account</a></li>
+                     <li>
+                         <a href="#">About</a>
+                         <div class="sub_menu">
+                             <ul>
+                                 <br><br>
+                                 <a href="#about-company"><li>Company</li></a>
+                                 <a href="#about-team"><li>Team</li></a>
+                                 <a href="#hotspot-locations"><li>Hotspot Locations</li></a>
+                             </ul>
+                         </div>
+                     </li>
+                     <li><a href="#contact">Contact</a></li>
+                     <li><a target="_blank" href="http://www.spectragh.com/blog/">Blog</a></li>
+                     </span>
+                 </ul>
+ 
+                 <!-- login bag -->
+                 <div class="login_bag hidebx">
+                     <form method="post" action="">
+                         <div class="signin_bx">
+                             <p>Have an account?</p>
+                             <input type="text" name="user_mail" required="required" class="trans" placeholder="Email...">
+                             <input type="password" name="user_pass" required="required" class="trans" placeholder="Password...">
+                             <!-- submit btn -->
+                             <input type="submit" name="btn_login" class="trans" value="Log in">
+                         </div><br>
+         
+                         <div class="log_new">
+                             <p>New to Spectra?</p>
+                             <a href="http://197.251.226.2/reg.php"><div class="btn_signup">Create Account</div></a>
+                         </div>
+                     </form>
+                 </div>
+             </aside>
+        </div>
+     </nav>
+     <!-- end of page nav bar -->
+
+    <div class="spacerB"></div>
+    <div class="centroid">
+        <p class="signInError">
+            <br> 
+            <small>		
+                $(if error)<span style="font-size: 16px">$(error)</span>$(endif)
+            </small>
+        </p><br>
+    </div>
+    <!-- end of page nav bar -->
+
+    <script language="JavaScript">
+        <!--
+        $(if advert-pending == 'yes')
+            var popup = '';
+            function focusAdvert() {
+            if (window.focus) popup.focus();
+            }
+            function openAdvert() {
+            popup = open('$(link-advert)', 'hotspot_advert', '');
+            setTimeout("focusAdvert()", 1000);
+            }
+        $(endif)
+            function openLogout() {
+            if (window.name != 'hotspot_status') return true;
+                open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+            window.close();
+            return false;
+            }
+        function readablizeBytes(bytes) {
+        var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+        var e = Math.floor(Math.log(bytes)/Math.log(1024));
+        return (bytes/Math.pow(1024, Math.floor(e))).toFixed(2)+" "+s[e];
+        }
+        
+        //-->
+    </script>
+    
+    <!-- home -->
+    <section class="ctrl_homebx">
+        <section class="centroid status_homebx">
+            <h1 class="page_h1">Account Status</h1>
+            <div class="user_form">
+                <!-- <h1 class="h1_loud txtc defclr">Account Status</h1> -->
+                <form action="$(link-logout)" name="logout" onsubmit="return openLogout()" id="form_status">
+
+                    $(if login-by == 'trial')
+                        <br><div class="userWelcomeTag" style="text-align: center;">Welcome trial user!</div><br>
+                    $(elif login-by != 'mac')
+                        <br><div class="userWelcomeTag" style="text-align: center;">Welcome $(username)!</div><br>
+                    $(endif)
+                        
+                        $(if session-time-left)
+                        
+                    $(else)
+                        
+                    $(endif)
+                    $(if blocked == 'yes')
+                        
+                    $(elif refresh-timeout)
+                        
+                    $(endif)
+                    <div class="frontclrfx"></div><br>
+                    <table class="tabula">
+                        <tbody>
+                            <tr>
+                                <td class="topmost_td" align="left">Data Balance: </td>
+                                <td class="topmost_td2" ><script language="JavaScript">document.write(readablizeBytes($(remain-bytes-total)));</script></td>
+                            </tr>
+                            <tr>
+                                <td align="right">IP address:</td>
+                                <td>$(ip)</td>
+                            </tr>
+                            <tr>
+                                <td align="right">bytes up/down:</td>
+                                <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+                            </tr>
+                            <tr>
+                                <td align="right">connected / left:</td>
+                                <td>$(uptime) / $(session-time-left)</td>
+                            </tr>
+                            <tr>
+                                <td align="right">connected:</td>
+                                <td>$(uptime)</td>
+                            </tr>
+                            <tr>
+                                <td align="right">status:</td>
+                                <td><div style="color: #FF8080"><a href="$(link-advert)" target="hotspot_advert">advertisement</a> required</div></td>
+                            </tr>
+                            <tr>
+                                <td align="right">status refresh:</td>
+                                <td>$(refresh-timeout)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                                    
+                    $(if login-by-mac != 'yes')
+                    <br>
+                    <!-- user manager link
+                    <button onclick="document.location='http://$(hostname)/user?subs='">status</button>
+                    <!-- end of user manager link -->
+                    <input type="submit" value="log off" id="button_ok" class="btnLogout trans"><br>
+                    $(endif)
+                    </form>
+
+                    <script>
+
+                    </script>
+            </div>
+            
+            <aside class="home_ad imgfx">
+                <img src="data1/images/apartment_packs.jpg" alt="Apartment Packs" />
+            </aside>
+        </section>
+    </section>
+    
+    <!-- student pricing -->
+    <section class="ctrl_student_pricing">
+        <!-- <div class="spacerA"></div><br> -->
+        <section class="centroid pricing_container">
+            <div class="spacerAS"></div>
+            <h1 class="page_h1">Student Package</h1>
+
+            <div class="pricind_n_ads fl_ov">
+                <!-- price list -->
+                <aside class="price_listbx fl_ov">
+                    <!-- package options -->
+                    <div class="package_options trans"></div>
+                    <!-- sub menu -->
+                    <div class="price_submenu trans">
+                        <div class="spacerA"></div>
+                        <div class="psm_item psm-select psm-standard">Standard</div>
+                        <div class="psm_item psm-double">Double</div>
+                        <div class="psm_item psm-sharedm">Shared Mobile</div>
+                        <div class="psm_item psm-tripple">Tripple</div>
+                        <div class="psm_item psm-quad">Quad</div>
+                    </div>
+                    <!-- price holder -->
+                    <section class="price_holderbx">
+                        <!-- standard -->
+                        <aside class="psm_stand ">
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/1.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/2.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/3.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/4.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/5.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/6.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/7.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/8.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/9.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/10.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/11.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/12.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/standard/13.png" alt="">
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- double -->
+                        <aside class="psm_double ">
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/double/1.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/double/2.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/double/3.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/double/4.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/double/5.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/double/6.png" alt="">
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- shared mobile -->
+                        <aside class="psm_shared ">
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/shared/1.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/shared/2.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/shared/3.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/shared/4.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/shared/5.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/shared/6.png" alt="">
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- tripple -->
+                        <aside class="psm_tripple ">
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/tripple/1.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/tripple/2.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/tripple/3.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/tripple/4.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/tripple/5.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/tripple/6.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/tripple/7.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/tripple/8.png" alt="">
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- tripple -->
+                        <aside class="psm_quad ">
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/1.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/2.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/3.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/4.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/5.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/6.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/7.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/8.png" alt="">
+                                </div>
+                            </div>
+                            <!-- grid -->
+                            <div class="price_list_gd trans grid-b3">
+                                <div class="price_item imgfx">
+                                    <img src="pricing/quad/9.png" alt="">
+                                </div>
+                            </div>
+                        </aside>
+                    </section>
+                </aside>
+            </div>
+            <!-- end of price list -->
+        </section>
+        <script>
+            $(function(){
+                $('.package_options').click(function(){
+                    $('.price_submenu').toggle(200);
+                });
+
+                // hide all list
+                function hidePackages(){
+                    $('.psm_stand').hide();
+                    $('.psm_double').hide();
+                    $('.psm_shared').hide();
+                    $('.psm_tripple').hide();
+                    $('.psm_quad').hide();
+                    // remove selected class
+                    $('.psm-standard').removeClass('psm-select');
+                    $('.psm-double').removeClass('psm-select');
+                    $('.psm-sharedm').removeClass('psm-select');
+                    $('.psm-tripple').removeClass('psm-select');
+                    $('.psm-quad').removeClass('psm-select');
+                }
+
+                // show firs package onload
+                hidePackages();
+                $('.psm-standard').addClass('psm-select');
+                $('.psm_stand').show(400);
+
+                $('.psm-standard').click(function(){
+                    hidePackages();
+                    $('.psm-standard').addClass('psm-select');
+                    $('.psm_stand').show(400);
+                });
+
+                $('.psm-double').click(function(){
+                    hidePackages();
+                    $('.psm-double').addClass('psm-select');
+                    $('.psm_double').show(400);
+                });
+
+                $('.psm-sharedm').click(function(){
+                    hidePackages();
+                    $('.psm-sharedm').addClass('psm-select');
+                    $('.psm_shared').show(400);
+                });
+
+                $('.psm-tripple').click(function(){
+                    hidePackages();
+                    $('.psm-tripple').addClass('psm-select');
+                    $('.psm_tripple').show(400);
+                });
+
+                $('.psm-quad').click(function(){
+                    hidePackages();
+                    $('.psm-quad').addClass('psm-select');
+                    $('.psm_quad').show(400);
+                });
+
+            });
+        </script>
+    </section>
+    
+    <!-- home pricing -->
+    <section class="ctrl_home_pricing">
+        <section class="centroid pricing_container">
+            <div class="spacerAS"></div>
+            <h1 class="page_h1">Home Package</h1>
+        
+            <div class="pricind_n_ads fl_ov">
+                <!-- price list -->
+                <aside class="price_listbx fl_ov">
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/1.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/2.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/3.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/4.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/5.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/6.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/7.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/8.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/home/9.png" alt="">
+                        </div>
+                    </div>
+                </aside>
+                <!-- end of price list -->
+        
+                <!-- ads section -->
+                <aside class="ads_for_pricing trans imgfx">
+        
+                </aside>
+                <!-- end of ads section -->
+            </div>
+        </section>
+    </section>
+
+    <!-- apartment pricing -->
+    <section class="ctrl_apartment_pricing">
+        <section class="centroid pricing_container">
+            <div class="spacerAS"></div>
+            <h1 class="page_h1">Apartment Package</h1>
+        
+            <div class="pricind_n_ads fl_ov">
+                <!-- price list -->
+                <aside class="price_listbx fl_ov">
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/1.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/2.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/3.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/4.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/5.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/6.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/7.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/8.png" alt="">
+                        </div>
+                    </div>
+                </aside>
+                <!-- end of price list -->
+        
+                <!-- ads section -->
+                <aside class="ads_for_pricing trans imgfx">
+        
+                </aside>
+                <!-- end of ads section -->
+            </div>
+        </section>
+    </section>
+
+    <!-- corporate pricing -->
+    <section class="ctrl_corporate_pricing">
+        <section class="centroid pricing_container">
+            <div class="spacerAS"></div>
+            <h1 class="page_h1">Corporate Package</h1>
+        
+            <div class="pricind_n_ads fl_ov">
+                <!-- price list -->
+                <aside class="price_listbx fl_ov">
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/1.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/2.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/3.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/4.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/5.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/6.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/7.png" alt="">
+                        </div>
+                    </div>
+                    <!-- grid -->
+                    <div class="price_list_gd trans grid-b3">
+                        <div class="price_item imgfx">
+                            <img src="pricing/apartment/8.png" alt="">
+                        </div>
+                    </div>
+                </aside>
+                <!-- end of price list -->
+        
+                <!-- ads section -->
+                <aside class="ads_for_pricing trans imgfx">
+        
+                </aside>
+                <!-- end of ads section -->
+            </div>
+        </section>
+    </section>
+
+    <!-- about -->
+    <section class="ctrl_about">
+        <section class="centroid hotspot_location">
+            <div class="spacerAS"></div>
+            <h1 class="page_h1">About Company</h1>
+    
+            <!-- description -->
+            <aside class="location_listbx about_descbx">
+                <figure class="about_img">
+                    <img src="img/company.jpg" alt="">
+                </figure>
+                <p>
+                    
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium, hic, dicta culpa officiis distinctio nostrum cupiditate dolores iusto amet earum fugit, quidem reprehenderit neque inventore eveniet similique. Sapiente, odit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium, hic, dicta culpa officiis distinctio nostrum cupiditate dolores iusto amet earum fugit, quidem reprehenderit neque inventore eveniet similique. Sapiente, odit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium, hic, dicta culpa officiis distinctio nostrum cupiditate dolores iusto amet earum fugit, quidem reprehenderit neque inventore eveniet similique. Sapiente, odit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium, hic, dicta culpa officiis distinctio nostrum cupiditate dolores iusto amet earum fugit, quidem reprehenderit neque inventore eveniet similique. Sapiente, odit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium, hic, dicta culpa officiis distinctio nostrum cupiditate dolores iusto amet earum fugit, quidem reprehenderit neque inventore eveniet similique. Sapiente, odit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium, hic, dicta culpa officiis distinctio nostrum cupiditate dolores iusto amet earum fugit, quidem reprehenderit neque inventore eveniet similique. Sapiente, odit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro laudantium, hic, dicta culpa officiis distinctio nostrum cupiditate dolores iusto amet earum fugit, quidem reprehenderit neque inventore eveniet similique. Sapiente, odit!
+                </p>
+            </aside>
+        </section>
+    </section>
+
+    <!-- team -->
+    <section class="ctrl_team">
+        <!-- team section -->
+        <!-- <div class="spacerA"></div><br> -->
+        <section class="centroid team_page fl_ov">
+            <div class="spacerAS"></div>
+            <h1 class="page_h1">Team</h1>
+
+            <!-- members grid -->
+            <aside class="member_gridbx">
+                <!-- staff -->
+                <div class="staff_gd trans grid-3">
+                    <!-- pic -->
+                    <div class="staff_pic_bdr">
+                        <div class="staff_pic imgfx">
+                            <img src="img/staff1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="staff_position">Senior Networking Engineer</div>
+                    <div class="staff_name">Jane Doe</div>
+                </div>
+                <!-- staff -->
+                <div class="staff_gd trans grid-3">
+                    <!-- pic -->
+                    <div class="staff_pic_bdr">
+                        <div class="staff_pic imgfx">
+                            <img src="img/staff1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="staff_position">Senior Networking Engineer</div>
+                    <div class="staff_name">Jane Doe</div>
+                </div>
+                <!-- staff -->
+                <div class="staff_gd trans grid-3">
+                    <!-- pic -->
+                    <div class="staff_pic_bdr">
+                        <div class="staff_pic imgfx">
+                            <img src="img/staff1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="staff_position">Senior Networking Engineer</div>
+                    <div class="staff_name">Jane Doe</div>
+                </div>
+                <!-- staff -->
+                <div class="staff_gd trans grid-3">
+                    <!-- pic -->
+                    <div class="staff_pic_bdr">
+                        <div class="staff_pic imgfx">
+                            <img src="img/staff1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="staff_position">Senior Networking Engineer</div>
+                    <div class="staff_name">Jane Doe</div>
+                </div>
+                <!-- staff -->
+                <div class="staff_gd trans grid-3">
+                    <!-- pic -->
+                    <div class="staff_pic_bdr">
+                        <div class="staff_pic imgfx">
+                            <img src="img/staff1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="staff_position">Senior Networking Engineer</div>
+                    <div class="staff_name">Jane Doe</div>
+                </div>
+                <!-- staff -->
+                <div class="staff_gd trans grid-3">
+                    <!-- pic -->
+                    <div class="staff_pic_bdr">
+                        <div class="staff_pic imgfx">
+                            <img src="img/staff1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="staff_position">Senior Networking Engineer</div>
+                    <div class="staff_name">Jane Doe</div>
+                </div>
+                <!-- staff -->
+                <div class="staff_gd trans grid-3">
+                    <!-- pic -->
+                    <div class="staff_pic_bdr">
+                        <div class="staff_pic imgfx">
+                            <img src="img/staff1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="staff_position">Senior Networking Engineer</div>
+                    <div class="staff_name">Jane Doe</div>
+                </div>
+
+            </aside>
+        </section>
+        <!-- end of team section -->
+    </section>
+
+    <!-- locations -->
+    <section class="ctrl_locations">
+        <!-- hotspot locations -->
+        <!-- <div class="spacerA"></!--><br>
+        <section class="centroid hotspot_location">
+            <div class="spacerAS"></div>
+            <h1 class="page_h1">Hotspot Locations</h1>
+
+            <!-- locations list -->
+            <aside class="location_listbx">
+                <!-- location -->
+                <div class="location_gd grid-3">
+                    <!-- location pic -->
+                    <div class="location_pic imgfx">
+                        <img src="img/agoo-hostel.jpg" alt="">
+                    </div>
+                    <div class="location_name">Agoo Hostel, Accra, Ghana</div>
+                    <div class="location_brief">
+                        We serve high speed internet eaque rerum nam assumenda ipsa corporis ipsum ipsam necessitatibus aperiam voluptate consequuntur sapiente fugit veritatis modi officiis, ducimus dolore dolor.
+                    </div>
+                    <a href="https://goo.gl/maps/s11wRZN1ZtHn9vaY6" target="_blank" rel="follow">
+                        <button class="btn_find_map trans">Find on Map</button>
+                    </a>
+                </div>
+                <!-- location -->
+                <div class="location_gd grid-3">
+                    <!-- location pic -->
+                    <div class="location_pic imgfx">
+                        <img src="img/agoo-hostel.jpg" alt="">
+                    </div>
+                    <div class="location_name">Agoo Hostel, Accra, Ghana</div>
+                    <div class="location_brief">
+                        We serve high speed internet eaque rerum nam assumenda ipsa corporis ipsum ipsam necessitatibus aperiam voluptate consequuntur sapiente fugit veritatis modi officiis, ducimus dolore dolor.
+                    </div>
+                    <a href="https://goo.gl/maps/s11wRZN1ZtHn9vaY6" target="_blank" rel="follow">
+                        <button class="btn_find_map trans">Find on Map</button>
+                    </a>
+                </div>
+                <!-- location -->
+                <div class="location_gd grid-3">
+                    <!-- location pic -->
+                    <div class="location_pic imgfx">
+                        <img src="img/agoo-hostel.jpg" alt="">
+                    </div>
+                    <div class="location_name">Agoo Hostel, Accra, Ghana</div>
+                    <div class="location_brief">
+                        We serve high speed internet eaque rerum nam assumenda ipsa corporis ipsum ipsam necessitatibus aperiam voluptate consequuntur sapiente fugit veritatis modi officiis, ducimus dolore dolor.
+                    </div>
+                    <a href="https://goo.gl/maps/s11wRZN1ZtHn9vaY6" target="_blank" rel="follow">
+                        <button class="btn_find_map trans">Find on Map</button>
+                    </a>
+                </div>
+                <!-- location -->
+                <div class="location_gd grid-3">
+                    <!-- location pic -->
+                    <div class="location_pic imgfx">
+                        <img src="img/agoo-hostel.jpg" alt="">
+                    </div>
+                    <div class="location_name">Agoo Hostel, Accra, Ghana</div>
+                    <div class="location_brief">
+                        We serve high speed internet eaque rerum nam assumenda ipsa corporis ipsum ipsam necessitatibus aperiam voluptate consequuntur sapiente fugit veritatis modi officiis, ducimus dolore dolor.
+                    </div>
+                    <a href="https://goo.gl/maps/s11wRZN1ZtHn9vaY6" target="_blank" rel="follow">
+                        <button class="btn_find_map trans">Find on Map</button>
+                    </a>
+                </div>
+                <!-- location -->
+                <div class="location_gd grid-3">
+                    <!-- location pic -->
+                    <div class="location_pic imgfx">
+                        <img src="img/agoo-hostel.jpg" alt="">
+                    </div>
+                    <div class="location_name">Agoo Hostel, Accra, Ghana</div>
+                    <div class="location_brief">
+                        We serve high speed internet eaque rerum nam assumenda ipsa corporis ipsum ipsam necessitatibus aperiam voluptate consequuntur sapiente fugit veritatis modi officiis, ducimus dolore dolor.
+                    </div>
+                    <a href="https://goo.gl/maps/s11wRZN1ZtHn9vaY6" target="_blank" rel="follow">
+                        <button class="btn_find_map trans">Find on Map</button>
+                    </a>
+                </div>
+            </aside>
+        </section>
+        <!-- end of hotspot locations -->
+    </section>
+    
+    <!-- contacts -->
+    <section class="ctrl_contacts">
+        <!-- contacts -->
+        <!-- <div class="spacerA"></div><br> -->
+        <section class="centroid hotspot_location">
+            <div class="spacerAS"></div>
+            <h1 class="page_h1">Contacts</h1>
+
+            <!-- contacts box -->
+            <aside class="location_listbx contactsbx">
+                <div class="spacerA"></div>
+                <div class="contact_container">
+                    <!-- left info -->
+                    <aside class="contacts_leftinfo">
+                        <div class="spacerA"></div>
+                        <h4 class="info_h4">Mobile Contacts</h4>
+                        <div class="info_details">
+                            <p>
+                                <label>Phone: </label>
+                                <span>+23571234567</span>
+                            </p>
+                            <p>
+                                <label>Phone: </label>
+                                <span>+23571234567</span>
+                            </p>
+                        </div><div class="spacerA"></div>
+                        <!-- social media -->
+                        <h4 class="info_h4 info_h4c">Follow Us</h4>
+                        <div class="info_details">
+                            <div class="socialbx">
+                                <!-- facebook -->
+                                <a href="https://www.facebook.com/" target="_blank" rel="follow">
+                                    <div class="sm_media sm_fb"></div>
+                                </a>
+                                <!-- instagram -->
+                                <a href="https://www.instagram.com/" target="_blank" rel="follow">
+                                    <div class="sm_media sm_in"></div>
+                                </a>
+                                <!-- twitter -->
+                                <a href="https://www.twitter.com/" target="_blank" rel="follow">
+                                    <div class="sm_media sm_tw"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- map -->
+                    <aside class="contacts_map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254133.52436411314!2d-0.31981623688939187!3d5.591192094041994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra!5e0!3m2!1sen!2sgh!4v1581771432556!5m2!1sen!2sgh" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </aside>
+                </div>
+            </aside>
+        </section>
+        <!-- end of contacts -->
+    </section>
+
+    <script>
+        $(function(){
+            // make mobile menu design visible
+            function mobileMenu(){
+                if($(window).width() <= 789){
+                    $('.tap_hide').fadeOut(10);
+                }
+            }
+
+            mobileMenu();
+
+            $('.tap_menu').click(function(){
+                $('.tap_hide').fadeToggle(400);
+            });
+
+            function makeAllInvisible(){
+                $('.ctrl_homebx').hide();
+                $('.ctrl_student_pricing').hide();
+                $('.ctrl_home_pricing').hide();
+                $('.ctrl_apartment_pricing').hide();
+                $('.ctrl_corporate_pricing').hide();
+                $('.ctrl_about').hide();
+                $('.ctrl_team').hide();
+                $('.ctrl_locations').hide();
+                $('.ctrl_contacts').hide();
+            }
+
+            try {
+                // code here
+                navigateToURL();
+
+                $(window).on('hashchange', function(e){
+                    navigateToURL();
+                });
+
+                function navigateToURL(){
+                    var hash_link = location.hash;
+                    
+                    if(hash_link == '#home' || hash_link == ""){
+                        // navigate to home 
+                        makeAllInvisible();
+                        $('.ctrl_homebx').show(200);
+                        mobileMenu();
+                    }else if(hash_link == "#hotspot-locations"){
+                        // navigate to hotspot locations 
+                        makeAllInvisible();
+                        $('.ctrl_locations').show(200);
+                        mobileMenu();
+                    }else if(hash_link == "#about-team"){
+                        // navigate to team 
+                        makeAllInvisible();
+                        $('.ctrl_team').show(200);
+                        mobileMenu();
+                    }else if(hash_link == "#about-company"){
+                        // navigate to team 
+                        makeAllInvisible();
+                        $('.ctrl_about').show(200);
+                        mobileMenu();
+                    }else if(hash_link == "#contact"){
+                        // navigate to contacts 
+                        makeAllInvisible();
+                        $('.ctrl_contacts').show(200);
+                        mobileMenu();
+                    }else if(hash_link == "#students-pricing"){
+                        // navigate to students pricing 
+                        makeAllInvisible();
+                        $('.ctrl_student_pricing').show(200);
+                        mobileMenu();
+                    }else if(hash_link == "#home-pricing"){
+                        // navigate to home pricing 
+                        makeAllInvisible();
+                        $('.ctrl_home_pricing').show(200);
+                        mobileMenu();
+                    }else if(hash_link == "#apartment-pricing"){
+                        // navigate to apartment pricing 
+                        makeAllInvisible();
+                        $('.ctrl_apartment_pricing').show(200);
+                        mobileMenu();
+                    }else if(hash_link == "#corporate-pricing"){
+                        // navigate to contacts 
+                        makeAllInvisible();
+                        $('.ctrl_corporate_pricing').show(200);
+                        mobileMenu();
+                    }else{
+                        // navigate to home 
+                        makeAllInvisible();
+                        $('.ctrl_homebx').show(200);
+                        mobileMenu();
+                    }
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    </script>
+</body>
+</html>
